@@ -2353,16 +2353,56 @@
   // ── FORM ──
   function submitForm() {
     const p = document.getElementById('prenom').value.trim();
+    const n = document.getElementById('nom').value.trim();
     const em = document.getElementById('email').value.trim();
+    const tel = document.getElementById('tel').value.trim();
     const t = document.getElementById('type').value;
     const m = document.getElementById('message').value.trim();
     const lang = (window.currentLang || 'fr');
     const msgRequired = { fr: 'Merci de remplir tous les champs obligatoires (*).', en: 'Please fill in all required fields (*).' };
     const msgEmail = { fr: 'Veuillez saisir une adresse email valide.', en: 'Please enter a valid email address.' };
-    if (!p || !em || !t || !m) { alert(msgRequired[lang]); return; }
+    const msgError = { fr: "Une erreur est survenue lors de l'envoi. Merci de réessayer, ou contactez-nous directement à info.service@woldius.com.", en: 'An error occurred while sending. Please try again, or contact us directly at info.service@woldius.com.' };
+    const msgSending = { fr: 'Envoi en cours...', en: 'Sending...' };
+
+    if (!p || !n || !em || !t || !m) { alert(msgRequired[lang]); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { alert(msgEmail[lang]); return; }
-    document.getElementById('formArea').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
+
+    const btn = document.querySelector('.form-submit');
+    const btnLabel = btn.querySelector('span');
+    const originalLabel = btnLabel.textContent;
+    btn.disabled = true;
+    btnLabel.textContent = msgSending[lang];
+
+    const payload = {
+      Prénom: p,
+      Nom: n,
+      Email: em,
+      Téléphone: tel || 'Non renseigné',
+      'Type de projet': t,
+      Message: m,
+      _subject: `Nouvelle demande de devis Woldius — ${p} ${n}`,
+      _template: 'table',
+      _captcha: 'false'
+    };
+
+    fetch('https://formsubmit.co/ajax/info.service@woldius.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then(() => {
+        document.getElementById('formArea').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      })
+      .catch(() => {
+        alert(msgError[lang]);
+        btn.disabled = false;
+        btnLabel.textContent = originalLabel;
+      });
   }
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
