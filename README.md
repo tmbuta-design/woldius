@@ -1,0 +1,1 @@
+SEO fix + nouvelle structure
