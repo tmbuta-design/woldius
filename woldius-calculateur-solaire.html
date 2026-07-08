@@ -471,6 +471,7 @@
             <div class="tool-field"><label for="d-batterie">Prix batterie (USD/kWh)</label><input id="d-batterie" type="number" value="300"></div>
             <div class="tool-field"><label for="d-mo">Main-d'œuvre (USD)</label><input id="d-mo" type="number" value="600"></div>
             <div class="tool-field"><label for="d-transport">Transport (USD)</label><input id="d-transport" type="number" value="150"></div>
+            <div class="tool-field"><label for="d-accessoires">Accessoires d'installation (USD)</label><input id="d-accessoires" type="number" value="120"></div>
             <div class="tool-field"><label for="d-marge">Marge (%)</label><input id="d-marge" type="number" value="18"></div>
           </div>
           <div class="tool-field"><label for="d-taux">Taux de change (CDF pour 1 USD)</label><input id="d-taux" type="number" value="2300"></div>
@@ -685,6 +686,7 @@
     var prixBatterieKwh = parseFloat(document.getElementById('d-batterie').value) || 0;
     var mo = parseFloat(document.getElementById('d-mo').value) || 0;
     var transport = parseFloat(document.getElementById('d-transport').value) || 0;
+    var accessoires = parseFloat(document.getElementById('d-accessoires').value) || 0;
     var marge = parseFloat(document.getElementById('d-marge').value) || 0;
     var taux = parseFloat(document.getElementById('d-taux').value) || 0;
 
@@ -694,7 +696,7 @@
 
     var coutPanneaux = nbPanneaux * prixPanneau;
     var coutBatterie = kwhBatt * prixBatterieKwh;
-    var sousTotal = coutPanneaux + prixOnduleur + coutBatterie + mo + transport;
+    var sousTotal = coutPanneaux + prixOnduleur + coutBatterie + mo + transport + accessoires;
     var margeMontant = sousTotal * (marge/100);
     var totalUSD = sousTotal + margeMontant;
     var totalCDF = totalUSD * taux;
@@ -706,6 +708,7 @@
       ["Batteries (" + fmt(kwhBatt,1) + " kWh)", coutBatterie],
       ["Main-d'œuvre", mo],
       ["Transport", transport],
+      ["Accessoires d'installation", accessoires],
       ["Sous-total", sousTotal],
       ["Marge (" + marge + "%)", margeMontant],
     ];
@@ -719,7 +722,7 @@
     document.getElementById('d-total-usd').textContent = fmt(totalUSD) + " USD";
     document.getElementById('d-total-cdf').textContent = "≈ " + fmt(totalCDF) + " CDF";
   }
-  ['d-client','d-panneau','d-onduleur','d-batterie','d-mo','d-transport','d-marge','d-taux'].forEach(function(id){
+  ['d-client','d-panneau','d-onduleur','d-batterie','d-mo','d-transport','d-accessoires','d-marge','d-taux'].forEach(function(id){
     document.getElementById(id).addEventListener('input', computeDevis);
   });
 
