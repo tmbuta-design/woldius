@@ -389,6 +389,10 @@
 
     /* EXPERTISE */
     .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 40px; }
+    .tools-section { background: linear-gradient(180deg, var(--green-light) 0%, var(--white) 100%); border-radius: 24px; padding: 56px 5%; margin: 0 5%; }
+    .tool-card-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; }
+    .tool-card-badge { position: absolute; top: 24px; right: 24px; background: var(--yellow); color: var(--charcoal); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 100px; }
     .pillar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; transition: box-shadow var(--transition), transform var(--transition); position: relative; overflow: hidden; }
     .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform var(--transition); }
     .pillar-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-4px); }
@@ -642,6 +646,8 @@
       .gallery-item:first-child { grid-column: span 2; grid-row: span 1; height: 260px; }
       .gallery-item { height: 200px; }
       .pillars-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .tools-section { padding: 40px 6%; margin: 0 4%; }
       .etude-types-grid { grid-template-columns: repeat(2,1fr); }
       .etude-sectors-grid { grid-template-columns: repeat(2,1fr); }
       .etude-projects-grid { grid-template-columns: repeat(2,1fr); }
@@ -783,6 +789,7 @@
     <li><a href="#marques" data-i18n="nav.brands">Marques</a></li>
     <li><a href="#etude" data-i18n="nav.etude">Étude de projet</a></li>
     <li><a href="woldius-calculateur-solaire.html" target="_blank" rel="noopener" data-i18n="nav.calc">Calculateur solaire</a></li>
+    <li><a href="woldius-supervision-parc.html" target="_blank" rel="noopener" data-i18n="nav.supervision">Supervision de parc</a></li>
     <li><a href="#processus" data-i18n="nav.process">Processus</a></li>
     <li><a href="#galerie" data-i18n="nav.gallery">Galerie</a></li>
     <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
@@ -813,6 +820,7 @@
     <a href="#solutions">⚡ <span data-i18n="nav.solutions">Solutions</span></a>
     <a href="#etude">📋 <span data-i18n="nav.etude">Étude de projet</span></a>
     <a href="woldius-calculateur-solaire.html" target="_blank" rel="noopener">🧮 <span data-i18n="nav.calc">Calculateur solaire</span></a>
+    <a href="woldius-supervision-parc.html" target="_blank" rel="noopener">🛰️ <span data-i18n="nav.supervision">Supervision de parc</span></a>
     <a href="#marques">🏷 <span data-i18n="nav.brands">Marques</span></a>
     <a href="#galerie">📷 <span data-i18n="nav.gallery">Galerie</span></a>
     <a href="#contact">✉ <span data-i18n="nav.contact">Contact</span></a>
@@ -852,6 +860,10 @@
 <!-- ══ BARRE SECONDAIRE ══ -->
 <div class="subnav" id="subnav">
   <div class="subnav-inner">
+    <a href="#outils" class="subnav-link" style="font-weight:800;">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+      <span data-i18n="subnav.tools">Outils Pro</span>
+    </a>
     <a href="#solutions" class="subnav-link active" id="snav-solutions">
       <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       <span data-i18n="subnav.pv">Photovoltaïque</span>
@@ -921,6 +933,37 @@
     <div class="hero-stat"><div class="hero-stat-num">350+</div><div class="hero-stat-label" data-i18n="hero.stat1">Installations</div></div>
     <div class="hero-stat"><div class="hero-stat-num">8+</div><div class="hero-stat-label" data-i18n="hero.stat2">Années d'expertise</div></div>
     <div class="hero-stat"><div class="hero-stat-num">24h</div><div class="hero-stat-label" data-i18n="hero.stat3">Réponse devis</div></div>
+  </div>
+</section>
+
+<!-- OUTILS NUMÉRIQUES -->
+<section id="outils" class="tools-section">
+  <div class="reveal">
+    <span class="eyebrow" data-i18n="tools.eyebrow">Outils professionnels — accès libre</span>
+    <h2 class="section-title" data-i18n="tools.title">Nos logiciels, à la disposition de la profession</h2>
+    <p class="section-sub" data-i18n="tools.sub">Deux outils que nos propres équipes utilisent au quotidien, ouverts gratuitement aux sociétés d'installation solaire en RDC — pour un travail plus rigoureux, du premier calcul au suivi de parc.</p>
+  </div>
+  <div class="tools-grid">
+    <div class="pillar-card reveal reveal-delay-1">
+      <span class="tool-card-badge" data-i18n="tools.badge">Gratuit</span>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2D7A3A" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="7" y1="6" x2="17" y2="6"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="12" cy="10.5" r="1"/><circle cx="16.5" cy="10.5" r="1"/><circle cx="7.5" cy="14.5" r="1"/><circle cx="12" cy="14.5" r="1"/><circle cx="16.5" cy="14.5" r="1"/></svg></div>
+      <h3 data-i18n="tools.calc.title">Calculateur solaire</h3>
+      <p data-i18n="tools.calc.text">Dimensionnement calibré par province (irradiation, températures), vérification de compatibilité panneaux/onduleur, sections de câble et devis USD/CDF — en quelques minutes.</p>
+      <a class="btn-primary tool-card-cta" href="woldius-calculateur-solaire.html" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span data-i18n="tools.calc.cta">Ouvrir le calculateur</span>
+      </a>
+    </div>
+    <div class="pillar-card reveal reveal-delay-2">
+      <span class="tool-card-badge" data-i18n="tools.badge">Gratuit</span>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2D7A3A" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg></div>
+      <h3 data-i18n="tools.super.title">Supervision &amp; gestion de parc</h3>
+      <p data-i18n="tools.super.text">Fiches clients et sites, numéros de série des équipements, alertes de panne, suivi de maintenance et rapports — un tableau de bord unique, multi-marques.</p>
+      <a class="btn-primary tool-card-cta" href="woldius-supervision-parc.html" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span data-i18n="tools.super.cta">Ouvrir la supervision</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -2239,7 +2282,7 @@
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/32471197491" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp Woldius" data-i18n-attr-aria-label="whatsapp.aria">
+<a href="https://wa.me/243838629150" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp Woldius" data-i18n-attr-aria-label="whatsapp.aria">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.102 1.519 5.825L0 24l6.335-1.652C8.024 23.404 9.97 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.898 0-3.664-.52-5.17-1.426l-.37-.22-3.837 1.001 1.024-3.73-.24-.383A9.793 9.793 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
 </a>
 
@@ -2420,6 +2463,7 @@
   "topbar.hours": "Mon – Sat: 8:00 AM – 6:00 PM",
   "topbar.badge": "Quote within 24h",
   "subnav.pv": "Photovoltaic",
+  "subnav.tools": "Pro Tools",
   "subnav.storage": "Storage",
   "subnav.inverters": "Inverters",
   "subnav.lamps": "Street Lights",
@@ -2444,6 +2488,7 @@
   "nav.brands": "Brands",
   "nav.etude": "Project Study",
   "nav.calc": "Solar Calculator",
+  "nav.supervision": "Fleet Supervision",
   "nav.process": "Process",
   "nav.gallery": "Gallery",
   "nav.contact": "Contact",
@@ -2461,6 +2506,16 @@
   "hero.stat1": "Installations",
   "hero.stat2": "Years of expertise",
   "hero.stat3": "Quote response",
+  "tools.eyebrow": "Professional tools — free access",
+  "tools.title": "Our software, available to the industry",
+  "tools.sub": "Two tools our own teams use every day, made freely available to solar installation companies in the DRC — for more rigorous work, from the first calculation to fleet monitoring.",
+  "tools.badge": "Free",
+  "tools.calc.title": "Solar Calculator",
+  "tools.calc.text": "Sizing calibrated by province (irradiation, temperatures), panel/inverter compatibility checks, cable sections and USD/CDF quotes — in minutes.",
+  "tools.calc.cta": "Open the calculator",
+  "tools.super.title": "Fleet Supervision & Management",
+  "tools.super.text": "Client and site records, equipment serial numbers, fault alerts, maintenance tracking and reports — one dashboard, any brand.",
+  "tools.super.cta": "Open the supervision tool",
   "expertise.eyebrow": "Our Pillars",
   "expertise.title": "Complete Technical Mastery",
   "expertise.sub": "From analyzing your needs to long-term maintenance, Woldius supports you at every stage of your solar project.",
