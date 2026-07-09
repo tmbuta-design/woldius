@@ -6,6 +6,16 @@
   <title id="pageTitle">Woldius SARL | Installation Systèmes Solaires & Photovoltaïques en RDC</title>
   <meta name="description" id="pageMetaDesc" content="Woldius SARL, spécialiste de l'installation, la fourniture et la maintenance de systèmes photovoltaïques, stockage d'énergie et onduleurs hybrides en RDC. Devis gratuit sous 24h." />
 
+  <!-- Progressive Web App : installation & usage hors connexion -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#1F5929" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Woldius" />
+
   <!-- Indexation & canonicalisation -->
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.woldius.com/" />
@@ -392,6 +402,7 @@
     .tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 40px; }
     .tools-section { background: linear-gradient(180deg, var(--green-light) 0%, var(--white) 100%); border-radius: 24px; padding: 56px 5%; margin: 0 5%; }
     .tool-card-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; }
+    .tool-card-note { margin-top: 14px; font-size: 0.78rem; color: var(--mid-grey); line-height: 1.4; }
     .tool-card-badge { position: absolute; top: 24px; right: 24px; background: var(--yellow); color: var(--charcoal); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 100px; }
     .pillar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; transition: box-shadow var(--transition), transform var(--transition); position: relative; overflow: hidden; }
     .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform var(--transition); }
@@ -949,20 +960,22 @@
       <div class="pillar-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2D7A3A" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="7" y1="6" x2="17" y2="6"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="12" cy="10.5" r="1"/><circle cx="16.5" cy="10.5" r="1"/><circle cx="7.5" cy="14.5" r="1"/><circle cx="12" cy="14.5" r="1"/><circle cx="16.5" cy="14.5" r="1"/></svg></div>
       <h3 data-i18n="tools.calc.title">Calculateur solaire</h3>
       <p data-i18n="tools.calc.text">Dimensionnement calibré par province (irradiation, températures), vérification de compatibilité panneaux/onduleur, sections de câble et devis USD/CDF — en quelques minutes.</p>
-      <a class="btn-primary tool-card-cta" href="woldius-calculateur-solaire.html" target="_blank" rel="noopener">
+      <a class="btn-primary tool-card-cta" href="outils/calculateur-solaire/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         <span data-i18n="tools.calc.cta">Ouvrir le calculateur</span>
       </a>
+      <p class="tool-card-note" data-i18n="tools.installnote">📲 Installable sur votre téléphone (icône sur l'écran d'accueil) — utilisable ensuite sans connexion internet.</p>
     </div>
     <div class="pillar-card reveal reveal-delay-2">
       <span class="tool-card-badge" data-i18n="tools.badge">Gratuit</span>
       <div class="pillar-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2D7A3A" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg></div>
       <h3 data-i18n="tools.super.title">Supervision &amp; gestion de parc</h3>
       <p data-i18n="tools.super.text">Fiches clients et sites, numéros de série des équipements, alertes de panne, suivi de maintenance et rapports — un tableau de bord unique, multi-marques.</p>
-      <a class="btn-primary tool-card-cta" href="woldius-supervision-parc.html" target="_blank" rel="noopener">
+      <a class="btn-primary tool-card-cta" href="outils/supervision-parc/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         <span data-i18n="tools.super.cta">Ouvrir la supervision</span>
       </a>
+      <p class="tool-card-note" data-i18n="tools.installnote">📲 Installable sur votre téléphone (icône sur l'écran d'accueil) — utilisable ensuite sans connexion internet.</p>
     </div>
   </div>
 </section>
@@ -2516,6 +2529,7 @@
   "tools.super.title": "Fleet Supervision & Management",
   "tools.super.text": "Client and site records, equipment serial numbers, fault alerts, maintenance tracking and reports — one dashboard, any brand.",
   "tools.super.cta": "Open the supervision tool",
+  "tools.installnote": "📲 Installable on your phone (home screen icon) — works offline afterwards.",
   "expertise.eyebrow": "Our Pillars",
   "expertise.title": "Complete Technical Mastery",
   "expertise.sub": "From analyzing your needs to long-term maintenance, Woldius supports you at every stage of your solar project.",
@@ -2866,6 +2880,15 @@
     try { saved = localStorage.getItem('woldius_lang') || 'fr'; } catch (e) {}
     applyLanguage(saved === 'en' ? 'en' : 'fr');
   })();
+</script>
+
+<!-- Activation du mode hors connexion (PWA) -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
 </script>
 </body>
 </html>
