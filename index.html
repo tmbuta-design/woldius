@@ -403,6 +403,8 @@
     .tools-section { background: linear-gradient(180deg, var(--green-light) 0%, var(--white) 100%); border-radius: 24px; padding: 56px 5%; margin: 0 5%; }
     .tool-card-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; }
     .tool-card-note { margin-top: 14px; font-size: 0.78rem; color: var(--mid-grey); line-height: 1.4; }
+    .tool-card-note a { color: var(--green, #2D7A3A); font-weight: 600; text-decoration: none; }
+    .tool-card-note a:hover, .tool-card-note a:active { text-decoration: underline; }
     .tool-card-badge { position: absolute; top: 24px; right: 24px; background: var(--yellow); color: var(--charcoal); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 100px; }
     .pillar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; transition: box-shadow var(--transition), transform var(--transition); position: relative; overflow: hidden; }
     .pillar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform var(--transition); }
@@ -964,7 +966,7 @@
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         <span data-i18n="tools.calc.cta">Ouvrir le calculateur</span>
       </a>
-      <p class="tool-card-note" data-i18n="tools.installnote">📲 Installable sur votre téléphone (icône sur l'écran d'accueil) — utilisable ensuite sans connexion internet.</p>
+      <p class="tool-card-note"><a href="guide-installation.html" data-i18n="tools.installlink">📲 Comment installer l'appli sur votre téléphone →</a></p>
     </div>
     <div class="pillar-card reveal reveal-delay-2">
       <span class="tool-card-badge" data-i18n="tools.badge">Gratuit</span>
@@ -975,7 +977,7 @@
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         <span data-i18n="tools.super.cta">Ouvrir la supervision</span>
       </a>
-      <p class="tool-card-note" data-i18n="tools.installnote">📲 Installable sur votre téléphone (icône sur l'écran d'accueil) — utilisable ensuite sans connexion internet.</p>
+      <p class="tool-card-note"><a href="guide-installation.html" data-i18n="tools.installlink">📲 Comment installer l'appli sur votre téléphone →</a></p>
     </div>
   </div>
 </section>
@@ -2529,7 +2531,7 @@
   "tools.super.title": "Fleet Supervision & Management",
   "tools.super.text": "Client and site records, equipment serial numbers, fault alerts, maintenance tracking and reports — one dashboard, any brand.",
   "tools.super.cta": "Open the supervision tool",
-  "tools.installnote": "📲 Installable on your phone (home screen icon) — works offline afterwards.",
+  "tools.installlink": "📲 How to install the app on your phone →",
   "expertise.eyebrow": "Our Pillars",
   "expertise.title": "Complete Technical Mastery",
   "expertise.sub": "From analyzing your needs to long-term maintenance, Woldius supports you at every stage of your solar project.",
