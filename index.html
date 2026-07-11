@@ -93,7 +93,7 @@
       --topbar-h: 40px;
       --nav-h: 72px;
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: var(--white); overflow-x: hidden; }
 
     /* ══════════════════════════════════════
@@ -723,8 +723,9 @@
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 2rem; }
-      .hero-actions { gap: 8px; }
-      .btn-primary, .btn-secondary { padding: 11px 10px; font-size: 0.76rem; gap: 5px; }
+      .hero-actions { gap: 6px; }
+      .btn-primary, .btn-secondary { padding: 10px 8px; font-size: 0.7rem; gap: 4px; }
+      .btn-primary svg, .btn-secondary svg { display: none; }
     }
   </style>
 </head>
