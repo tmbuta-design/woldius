@@ -421,7 +421,10 @@
 
     /* EXPERTISE */
     .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
-    .tools-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 40px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
+    .tool-card-badge.new { background: var(--green-dark); color: var(--white); }
+    .pillar-card.tool-flagship { border-color: var(--yellow); box-shadow: 0 8px 32px rgba(245,166,35,0.16); }
+    .pillar-card.tool-flagship::before { background: var(--yellow); transform: scaleX(1); }
     .tools-section { background: linear-gradient(180deg, var(--green-light) 0%, var(--white) 100%); border-radius: 24px; padding: 56px 5%; margin: 0 5%; }
     .tool-card-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; }
     .tool-card-note { margin-top: 14px; font-size: 0.78rem; color: var(--mid-grey); line-height: 1.4; }
@@ -867,6 +870,10 @@
         <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
       </a>
       <div class="nav-dropdown">
+        <a href="woldius-solar-application.html" target="_blank" rel="noopener">
+          <span class="dd-icon"><svg viewBox="0 0 24 24"><path d="M12 2 L21 8.5 V21 H3 V8.5 Z"/><path d="M12 2 V13 M3 13 H21"/></svg></span>
+          <span class="dd-text"><span class="dd-label" data-i18n="nav.woldius">Woldius Solar Application</span><span class="dd-sub" data-i18n="nav.dd.woldius.sub">Calepinage, ombrage & production PV</span></span>
+        </a>
         <a href="woldius-calculateur-solaire.html" target="_blank" rel="noopener">
           <span class="dd-icon"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="12" x2="10" y2="12"/><line x1="14" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="10" y2="16"/><line x1="14" y1="16" x2="16" y2="16"/></svg></span>
           <span class="dd-text"><span class="dd-label" data-i18n="nav.calc">Calculateur solaire</span><span class="dd-sub" data-i18n="nav.dd.calc.sub">Estimez votre installation en ligne</span></span>
@@ -905,6 +912,7 @@
   <div class="mobile-subnav">
     <a href="#solutions">⚡ <span data-i18n="nav.solutions">Solutions</span></a>
     <a href="#etude">📋 <span data-i18n="nav.etude">Étude de projet</span></a>
+    <a href="woldius-solar-application.html" target="_blank" rel="noopener">☀️ <span data-i18n="nav.woldius">Woldius Solar Application</span></a>
     <a href="woldius-calculateur-solaire.html" target="_blank" rel="noopener">🧮 <span data-i18n="nav.calc">Calculateur solaire</span></a>
     <a href="woldius-supervision-parc.html" target="_blank" rel="noopener">🛰️ <span data-i18n="nav.supervision">Supervision de parc</span></a>
     <a href="#marques">🏷 <span data-i18n="nav.brands">Marques</span></a>
@@ -1006,10 +1014,21 @@
   <div class="reveal">
     <span class="eyebrow" data-i18n="tools.eyebrow">Outils professionnels — accès libre</span>
     <h2 class="section-title" data-i18n="tools.title">Nos logiciels, à la disposition de la profession</h2>
-    <p class="section-sub" data-i18n="tools.sub">Deux outils que nos propres équipes utilisent au quotidien, ouverts gratuitement aux sociétés d'installation solaire en RDC — pour un travail plus rigoureux, du premier calcul au suivi de parc.</p>
+    <p class="section-sub" data-i18n="tools.sub">Trois outils que nos propres équipes utilisent au quotidien, ouverts gratuitement aux sociétés d'installation solaire en RDC — de la conception de toiture au suivi de parc.</p>
   </div>
   <div class="tools-grid">
-    <div class="pillar-card reveal reveal-delay-1">
+    <div class="pillar-card tool-flagship reveal reveal-delay-1">
+      <span class="tool-card-badge new" data-i18n="tools.badge.new">Nouveau</span>
+      <div class="pillar-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2D7A3A" stroke-width="1.6"><path d="M12 3 L21 9 V21 H3 V9 Z"/><path d="M12 3 V13 M3 13 H21"/></svg></div>
+      <h3 data-i18n="tools.woldius.title">Woldius Solar Application</h3>
+      <p data-i18n="tools.woldius.text">Calepinage de toiture, placement automatique des panneaux, analyse d'ombrage et estimation du potentiel solaire — de la visite de site au dossier technique complet, en un seul outil.</p>
+      <a class="btn-primary tool-card-cta" href="woldius-solar-application.html" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span data-i18n="tools.woldius.cta">Ouvrir Woldius Solar Application</span>
+      </a>
+      <p class="tool-card-note"><a href="guide-installation.html" data-i18n="tools.installlink">📲 Comment installer l'appli sur votre téléphone →</a></p>
+    </div>
+    <div class="pillar-card reveal reveal-delay-2">
       <span class="tool-card-badge" data-i18n="tools.badge">Gratuit</span>
       <div class="pillar-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2D7A3A" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="7" y1="6" x2="17" y2="6"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="12" cy="10.5" r="1"/><circle cx="16.5" cy="10.5" r="1"/><circle cx="7.5" cy="14.5" r="1"/><circle cx="12" cy="14.5" r="1"/><circle cx="16.5" cy="14.5" r="1"/></svg></div>
       <h3 data-i18n="tools.calc.title">Calculateur solaire</h3>
@@ -1020,7 +1039,7 @@
       </a>
       <p class="tool-card-note"><a href="guide-installation.html" data-i18n="tools.installlink">📲 Comment installer l'appli sur votre téléphone →</a></p>
     </div>
-    <div class="pillar-card reveal reveal-delay-2">
+    <div class="pillar-card reveal reveal-delay-3">
       <span class="tool-card-badge" data-i18n="tools.badge">Gratuit</span>
       <div class="pillar-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#2D7A3A" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg></div>
       <h3 data-i18n="tools.super.title">Supervision &amp; gestion de parc</h3>
@@ -2593,6 +2612,8 @@
   "nav.dd.territory.label": "Territory",
   "nav.dd.territory.sub": "Nationwide coverage in the DRC",
   "nav.tools": "Pro Tools",
+  "nav.woldius": "Woldius Solar Application",
+  "nav.dd.woldius.sub": "Roof layout, shading & PV output",
   "nav.calc": "Solar Calculator",
   "nav.dd.calc.sub": "Estimate your installation online",
   "nav.supervision": "Fleet Supervision",
@@ -2616,8 +2637,12 @@
   "hero.stat3": "Quote response",
   "tools.eyebrow": "Professional tools — free access",
   "tools.title": "Our software, available to the industry",
-  "tools.sub": "Two tools our own teams use every day, made freely available to solar installation companies in the DRC — for more rigorous work, from the first calculation to fleet monitoring.",
+  "tools.sub": "Three tools our own teams use every day, made freely available to solar installation companies in the DRC — from roof design to fleet monitoring.",
   "tools.badge": "Free",
+  "tools.badge.new": "New",
+  "tools.woldius.title": "Woldius Solar Application",
+  "tools.woldius.text": "Roof layout, automatic panel placement, shading analysis and solar potential estimate — from the site visit to the full technical report, in a single tool.",
+  "tools.woldius.cta": "Open Woldius Solar Application",
   "tools.calc.title": "Solar Calculator",
   "tools.calc.text": "Sizing calibrated by province (irradiation, temperatures), panel/inverter compatibility checks, cable sections and USD/CDF quotes — in minutes.",
   "tools.calc.cta": "Open the calculator",
