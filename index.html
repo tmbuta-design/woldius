@@ -654,9 +654,24 @@
     @keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:0.4; } }
 
     /* WHATSAPP */
-    .whatsapp-btn { position: fixed; bottom: 28px; right: 28px; z-index: 90; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform var(--transition), box-shadow var(--transition); }
+    .whatsapp-wrap { position: fixed; bottom: 28px; right: 28px; z-index: 90; }
+    .whatsapp-btn { position: relative; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; border: none; cursor: pointer; transition: transform var(--transition), box-shadow var(--transition); }
     .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
     .whatsapp-btn svg { width: 28px; height: 28px; fill: white; }
+    .whatsapp-panel {
+      position: absolute; bottom: 68px; right: 0; z-index: 91;
+      background: var(--white); border-radius: 16px; padding: 8px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.18); min-width: 240px;
+      display: flex; flex-direction: column; gap: 2px;
+      opacity: 0; transform: translateY(10px) scale(0.96); transform-origin: bottom right;
+      pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .whatsapp-wrap.open .whatsapp-panel { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .whatsapp-option { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; text-decoration: none; transition: background var(--transition); }
+    .whatsapp-option:hover { background: var(--off-white); }
+    .whatsapp-option .flag { font-size: 1.4rem; line-height: 1; }
+    .whatsapp-option-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--charcoal); }
+    .whatsapp-option-num { display: block; font-size: 0.75rem; color: var(--mid-grey); margin-top: 1px; }
 
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -728,8 +743,10 @@
       .btn-primary svg, .btn-secondary svg { display: none; }
     }
     @media (max-width: 480px) {
-      .whatsapp-btn { width: 46px; height: 46px; bottom: 130px; right: 16px; }
+      .whatsapp-wrap { bottom: 130px; right: 16px; }
+      .whatsapp-btn { width: 46px; height: 46px; }
       .whatsapp-btn svg { width: 22px; height: 22px; }
+      .whatsapp-panel { right: -6px; min-width: 220px; }
     }
   </style>
 </head>
@@ -2332,11 +2349,46 @@
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/243838629150" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp Woldius" data-i18n-attr-aria-label="whatsapp.aria">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.102 1.519 5.825L0 24l6.335-1.652C8.024 23.404 9.97 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.898 0-3.664-.52-5.17-1.426l-.37-.22-3.837 1.001 1.024-3.73-.24-.383A9.793 9.793 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
-</a>
+<div class="whatsapp-wrap" id="whatsappWrap">
+  <div class="whatsapp-panel" id="whatsappPanel">
+    <a href="https://wa.me/243838629150" target="_blank" rel="noopener" class="whatsapp-option">
+      <span class="flag">🇨🇩</span>
+      <span>
+        <span class="whatsapp-option-label" data-i18n="whatsapp.rdc">RD Congo</span>
+        <span class="whatsapp-option-num">+243 83 862 9150</span>
+      </span>
+    </a>
+    <a href="https://wa.me/32471197491" target="_blank" rel="noopener" class="whatsapp-option">
+      <span class="flag">🇧🇪</span>
+      <span>
+        <span class="whatsapp-option-label" data-i18n="whatsapp.europe">Europe</span>
+        <span class="whatsapp-option-num">+32 471 19 74 91</span>
+      </span>
+    </a>
+  </div>
+  <button class="whatsapp-btn" id="whatsappToggle" aria-label="WhatsApp Woldius" aria-expanded="false" data-i18n-attr-aria-label="whatsapp.aria">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.553 4.102 1.519 5.825L0 24l6.335-1.652C8.024 23.404 9.97 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.898 0-3.664-.52-5.17-1.426l-.37-.22-3.837 1.001 1.024-3.73-.24-.383A9.793 9.793 0 012.182 12C2.182 6.569 6.569 2.182 12 2.182S21.818 6.569 21.818 12 17.431 21.818 12 21.818z"/></svg>
+  </button>
+</div>
 
 <script>
+  // ── WHATSAPP TOGGLE ──
+  const whatsappWrap = document.getElementById('whatsappWrap');
+  const whatsappToggle = document.getElementById('whatsappToggle');
+  if (whatsappToggle) {
+    whatsappToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = whatsappWrap.classList.toggle('open');
+      whatsappToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', (e) => {
+      if (whatsappWrap.classList.contains('open') && !whatsappWrap.contains(e.target)) {
+        whatsappWrap.classList.remove('open');
+        whatsappToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // ── SLIDER ──
   const slideCaptions = [
     { num: '01', fr: 'Systèmes Photovoltaïques', en: 'Photovoltaic Systems' },
@@ -2846,6 +2898,8 @@
   "footer.copyright": "© 2025 Woldius SARL. All rights reserved.",
   "footer.location": "Kinshasa, Democratic Republic of Congo",
   "whatsapp.aria": "WhatsApp Woldius",
+  "whatsapp.rdc": "DR Congo",
+  "whatsapp.europe": "Europe",
   "ph.firstname": "Jean-Luc",
   "ph.lastname": "Kabila",
   "ph.email": "jean@example.com",
