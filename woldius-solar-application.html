@@ -573,6 +573,20 @@
         <span data-i18n="label_opacity">Opacité</span><input type="range" id="opacitySlider" min="10" max="100" value="60"><span id="opacityVal" class="mono">60%</span>
       </div>
 
+      <div class="sb-title" data-i18n="sec_geocode">Adresse (image satellite)</div>
+      <div class="lib-card">
+        <div class="field">
+          <input type="text" id="addressInput" data-i18n-placeholder="placeholder_address" placeholder="Ex: 12 Avenue Kasa-Vubu, Kinshasa, RDC" style="width:100%;">
+        </div>
+        <div class="lib-fields" style="margin-top:8px;">
+          <div class="field"><label data-i18n="label_view_width">Largeur de la vue (m)</label><input type="number" step="5" min="10" max="500" id="viewWidthInput" value="40"></div>
+        </div>
+        <button class="imgbtn" id="btnGeocode" style="margin-top:8px;">
+          <span data-i18n="btn_fetch_satellite">🛰 Charger l'image satellite</span>
+        </button>
+        <div class="empty-note" id="geocodeStatus" style="margin-top:8px;padding:0;" data-i18n="note_geocode_source">Géocodage OpenStreetMap · imagerie satellite Esri World Imagery (accès libre). L'échelle est calée automatiquement, sans calibration manuelle.</div>
+      </div>
+
       <div class="sb-title" data-i18n="sec_pv_library">Bibliothèque module PV</div>
       <div class="lib-card">
         <div class="lib-fields">
@@ -597,12 +611,41 @@
           <option value="5.6" data-ghi="5.0" data-lon="-0.19" data-en="Accra, Ghana (5.6° N)" data-fr="Accra, Ghana (5,6° N)">Accra, Ghana (5,6° N)</option>
           <option value="12.65" data-ghi="5.9" data-lon="-8.00" data-en="Bamako, Mali (12.6° N)" data-fr="Bamako, Mali (12,6° N)">Bamako, Mali (12,6° N)</option>
           <option value="12.37" data-ghi="5.8" data-lon="-1.52" data-en="Ouagadougou, Burkina Faso (12.4° N)" data-fr="Ouagadougou, Burkina Faso (12,4° N)">Ouagadougou, Burkina Faso (12,4° N)</option>
-          <option value="-4.32" data-ghi="4.3" data-lon="15.31" data-en="Kinshasa, DRC (−4.3° N)" data-fr="Kinshasa, RDC (−4,3° N)">Kinshasa, RDC (−4,3° N)</option>
+          <optgroup label="RD Congo — 26 provinces">
+          <option value="-4.32" data-ghi="4.3" data-lon="15.31" selected data-en="Kinshasa (−4.3° N)" data-fr="Kinshasa (−4,3° N)">Kinshasa (−4,3° N)</option>
+          <option value="-5.82" data-ghi="4.6" data-lon="13.45" data-en="Kongo Central — Matadi (−5.8° N)" data-fr="Kongo Central — Matadi (−5,8° N)">Kongo Central — Matadi (−5,8° N)</option>
+          <option value="-4.87" data-ghi="4.5" data-lon="17.03" data-en="Kwango — Kenge (−4.9° N)" data-fr="Kwango — Kenge (−4,9° N)">Kwango — Kenge (−4,9° N)</option>
+          <option value="-3.31" data-ghi="4.4" data-lon="17.38" data-en="Kwilu — Bandundu (−3.3° N)" data-fr="Kwilu — Bandundu (−3,3° N)">Kwilu — Bandundu (−3,3° N)</option>
+          <option value="-1.95" data-ghi="4.3" data-lon="18.28" data-en="Mai-Ndombe — Inongo (−2.0° N)" data-fr="Mai-Ndombe — Inongo (−2,0° N)">Mai-Ndombe — Inongo (−2,0° N)</option>
+          <option value="-6.42" data-ghi="4.5" data-lon="20.80" data-en="Kasaï — Tshikapa (−6.4° N)" data-fr="Kasaï — Tshikapa (−6,4° N)">Kasaï — Tshikapa (−6,4° N)</option>
+          <option value="-5.90" data-ghi="4.5" data-lon="22.42" data-en="Kasaï-Central — Kananga (−5.9° N)" data-fr="Kasaï-Central — Kananga (−5,9° N)">Kasaï-Central — Kananga (−5,9° N)</option>
+          <option value="-6.15" data-ghi="4.5" data-lon="23.60" data-en="Kasaï-Oriental — Mbuji-Mayi (−6.2° N)" data-fr="Kasaï-Oriental — Mbuji-Mayi (−6,2° N)">Kasaï-Oriental — Mbuji-Mayi (−6,2° N)</option>
+          <option value="-6.13" data-ghi="4.6" data-lon="24.48" data-en="Lomami — Kabinda (−6.1° N)" data-fr="Lomami — Kabinda (−6,1° N)">Lomami — Kabinda (−6,1° N)</option>
+          <option value="-4.97" data-ghi="4.3" data-lon="23.44" data-en="Sankuru — Lusambo (−5.0° N)" data-fr="Sankuru — Lusambo (−5,0° N)">Sankuru — Lusambo (−5,0° N)</option>
+          <option value="-2.95" data-ghi="4.2" data-lon="25.95" data-en="Maniema — Kindu (−3.0° N)" data-fr="Maniema — Kindu (−3,0° N)">Maniema — Kindu (−3,0° N)</option>
+          <option value="-2.50" data-ghi="4.4" data-lon="28.86" data-en="Sud-Kivu — Bukavu (−2.5° N)" data-fr="Sud-Kivu — Bukavu (−2,5° N)">Sud-Kivu — Bukavu (−2,5° N)</option>
+          <option value="-1.68" data-ghi="4.4" data-lon="29.22" data-en="Nord-Kivu — Goma (−1.7° N)" data-fr="Nord-Kivu — Goma (−1,7° N)">Nord-Kivu — Goma (−1,7° N)</option>
+          <option value="1.57" data-ghi="4.6" data-lon="30.25" data-en="Ituri — Bunia (1.6° N)" data-fr="Ituri — Bunia (1,6° N)">Ituri — Bunia (1,6° N)</option>
+          <option value="2.78" data-ghi="4.5" data-lon="27.62" data-en="Haut-Uele — Isiro (2.8° N)" data-fr="Haut-Uele — Isiro (2,8° N)">Haut-Uele — Isiro (2,8° N)</option>
+          <option value="2.79" data-ghi="4.3" data-lon="24.73" data-en="Bas-Uele — Buta (2.8° N)" data-fr="Bas-Uele — Buta (2,8° N)">Bas-Uele — Buta (2,8° N)</option>
+          <option value="0.52" data-ghi="4.1" data-lon="25.20" data-en="Tshopo — Kisangani (0.5° N)" data-fr="Tshopo — Kisangani (0,5° N)">Tshopo — Kisangani (0,5° N)</option>
+          <option value="-0.28" data-ghi="4.1" data-lon="20.87" data-en="Tshuapa — Boende (−0.3° N)" data-fr="Tshuapa — Boende (−0,3° N)">Tshuapa — Boende (−0,3° N)</option>
+          <option value="0.05" data-ghi="4.1" data-lon="18.26" data-en="Équateur — Mbandaka (0.1° N)" data-fr="Équateur — Mbandaka (0,1° N)">Équateur — Mbandaka (0,1° N)</option>
+          <option value="3.25" data-ghi="4.3" data-lon="19.77" data-en="Sud-Ubangi — Gemena (3.3° N)" data-fr="Sud-Ubangi — Gemena (3,3° N)">Sud-Ubangi — Gemena (3,3° N)</option>
+          <option value="4.28" data-ghi="4.4" data-lon="21.02" data-en="Nord-Ubangi — Gbadolite (4.3° N)" data-fr="Nord-Ubangi — Gbadolite (4,3° N)">Nord-Ubangi — Gbadolite (4,3° N)</option>
+          <option value="2.15" data-ghi="4.2" data-lon="21.52" data-en="Mongala — Lisala (2.2° N)" data-fr="Mongala — Lisala (2,2° N)">Mongala — Lisala (2,2° N)</option>
+          <option value="-11.66" data-ghi="5.2" data-lon="27.48" data-en="Haut-Katanga — Lubumbashi (−11.7° N)" data-fr="Haut-Katanga — Lubumbashi (−11,7° N)">Haut-Katanga — Lubumbashi (−11,7° N)</option>
+          <option value="-10.72" data-ghi="5.3" data-lon="25.47" data-en="Lualaba — Kolwezi (−10.7° N)" data-fr="Lualaba — Kolwezi (−10,7° N)">Lualaba — Kolwezi (−10,7° N)</option>
+          <option value="-8.74" data-ghi="5.0" data-lon="24.99" data-en="Haut-Lomami — Kamina (−8.7° N)" data-fr="Haut-Lomami — Kamina (−8,7° N)">Haut-Lomami — Kamina (−8,7° N)</option>
+          <option value="-5.90" data-ghi="4.7" data-lon="29.20" data-en="Tanganyika — Kalemie (−5.9° N)" data-fr="Tanganyika — Kalemie (−5,9° N)">Tanganyika — Kalemie (−5,9° N)</option>
+          </optgroup>
+          <optgroup label="Autres pays africains">
           <option value="-1.29" data-ghi="5.2" data-lon="36.82" data-en="Nairobi, Kenya (−1.3° N)" data-fr="Nairobi, Kenya (−1,3° N)">Nairobi, Kenya (−1,3° N)</option>
           <option value="-26.2" data-ghi="5.6" data-lon="28.05" data-en="Johannesburg, South Africa (−26.2° N)" data-fr="Johannesburg, Afr. du Sud (−26,2° N)">Johannesburg, Afr. du Sud (−26,2° N)</option>
           <option value="33.57" data-ghi="5.3" data-lon="-7.59" data-en="Casablanca, Morocco (33.6° N)" data-fr="Casablanca, Maroc (33,6° N)">Casablanca, Maroc (33,6° N)</option>
-          <option value="36.75" data-ghi="5.0" data-lon="10.18" selected data-en="Tunis, Tunisia (36.8° N)" data-fr="Tunis, Tunisie (36,8° N)">Tunis, Tunisie (36,8° N)</option>
+          <option value="36.75" data-ghi="5.0" data-lon="10.18" data-en="Tunis, Tunisia (36.8° N)" data-fr="Tunis, Tunisie (36,8° N)">Tunis, Tunisie (36,8° N)</option>
           <option value="30.04" data-ghi="5.9" data-lon="31.24" data-en="Cairo, Egypt (30.0° N)" data-fr="Le Caire, Égypte (30,0° N)">Le Caire, Égypte (30,0° N)</option>
+          </optgroup>
         </select>
 
         <div class="shade-quickrow">
@@ -748,6 +791,17 @@
       sec_background: "Fond de plan",
       btn_import_image: "Importer une image / un plan",
       label_opacity: "Opacité",
+      sec_geocode: "Adresse (image satellite)",
+      placeholder_address: "Ex: 12 Avenue Kasa-Vubu, Kinshasa, RDC",
+      label_view_width: "Largeur de la vue (m)",
+      btn_fetch_satellite: "🛰 Charger l'image satellite",
+      note_geocode_source: "Géocodage OpenStreetMap · imagerie satellite Esri World Imagery (accès libre). L'échelle est calée automatiquement, sans calibration manuelle.",
+      status_geocoding: "Recherche de l'adresse…",
+      status_geocode_notfound: "Adresse introuvable. Précisez la ville / le pays et réessayez.",
+      status_geocode_error: "Erreur réseau pendant le géocodage. Vérifiez la connexion.",
+      status_geocode_loading_img: "Téléchargement de l'image satellite…",
+      status_geocode_done: "Image satellite chargée et échelle calée automatiquement.",
+      status_geocode_img_error: "Impossible de charger l'image satellite pour ces coordonnées.",
       sec_pv_library: "Bibliothèque module PV",
       field_width: "Largeur (m)",
       field_height: "Hauteur (m)",
@@ -894,6 +948,17 @@
       sec_background: "Background plan",
       btn_import_image: "Import an image / plan",
       label_opacity: "Opacity",
+      sec_geocode: "Address (satellite image)",
+      placeholder_address: "E.g. 12 Kasa-Vubu Avenue, Kinshasa, DRC",
+      label_view_width: "View width (m)",
+      btn_fetch_satellite: "🛰 Load satellite image",
+      note_geocode_source: "OpenStreetMap geocoding · Esri World Imagery satellite tiles (open access). Scale is calibrated automatically, no manual calibration needed.",
+      status_geocoding: "Looking up address…",
+      status_geocode_notfound: "Address not found. Add the city/country and try again.",
+      status_geocode_error: "Network error while geocoding. Check your connection.",
+      status_geocode_loading_img: "Downloading satellite image…",
+      status_geocode_done: "Satellite image loaded and scale calibrated automatically.",
+      status_geocode_img_error: "Could not load a satellite image for these coordinates.",
       sec_pv_library: "PV module library",
       field_width: "Width (m)",
       field_height: "Height (m)",
@@ -1186,6 +1251,13 @@
     function toWorldPt(u,v){ return {x:R.x+u*eu.x+v*ev.x, y:R.y+u*eu.y+v*ev.y}; }
 
     const zonesHere = zones.filter(z=>z.panId===pan.id);
+    // Obstacles act like a positive buffer around their footprint (arbre, cheminée,
+    // bâtiment voisin…): keep-out radius = obstacle radius + safety margin (0.5 m by default).
+    const OBSTACLE_SAFETY_M = 0.5;
+    const obstaclesHere = obstacles.map(o=>({
+      cx:o.cx, cy:o.cy,
+      rPx: (o.radius||0.5)*pxPerMeter + OBSTACLE_SAFETY_M*pxPerMeter
+    }));
     let row = 0;
     const rowCounts = [];
     for(let v=v0+marginPx; v+h<=v1-marginPx+1e-6; v+=h+gapPx){
@@ -1201,6 +1273,11 @@
           if(corners.some(c=>pointInPoly(c, z.points)) || z.points.some(zp=>pointInPoly(zp, centerRect))){ hitsZone=true; break; }
         }
         if(hitsZone) continue;
+        const centerPt = {x:(corners[0].x+corners[2].x)/2, y:(corners[0].y+corners[2].y)/2};
+        let hitsObstacle = obstaclesHere.some(o=>
+          corners.some(c=>dist(c,{x:o.cx,y:o.cy}) < o.rPx) || dist(centerPt,{x:o.cx,y:o.cy}) < o.rPx
+        );
+        if(hitsObstacle) continue;
         panels.push({id:uid(), panId:pan.id, points:corners, row});
         countThisRow++;
       }
@@ -2133,6 +2210,80 @@
     };
     reader.readAsDataURL(file);
   });
+
+  // ---------- ADDRESS -> SATELLITE IMAGE (geocoding + free satellite tiles) ----------
+  // 1) Geocode the address with OpenStreetMap Nominatim (free, no API key).
+  // 2) Fetch a square satellite crop from Esri World Imagery (free, no API key) for a
+  //    known width in meters, then use that known width to set pxPerMeter automatically:
+  //    no manual "Calibrer l'échelle" step is required afterwards.
+  async function geocodeAddress(address){
+    const url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(address);
+    const res = await fetch(url, {headers:{'Accept':'application/json'}});
+    if(!res.ok) throw new Error('geocode-http-'+res.status);
+    const data = await res.json();
+    if(!data || !data.length) return null;
+    return {lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon), label: data[0].display_name};
+  }
+
+  function satelliteImageUrl(lat, lon, widthM, heightM, pxSize){
+    const mPerDegLat = 111320;
+    const mPerDegLon = 111320 * Math.cos(lat*Math.PI/180);
+    const dLon = (widthM/2) / mPerDegLon;
+    const dLat = (heightM/2) / mPerDegLat;
+    const minLon = lon-dLon, maxLon = lon+dLon;
+    const minLat = lat-dLat, maxLat = lat+dLat;
+    const bbox = [minLon, minLat, maxLon, maxLat].join(',');
+    return 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export'
+      + '?bbox=' + bbox + '&bboxSR=4326&imageSR=4326'
+      + '&size=' + pxSize + ',' + pxSize
+      + '&format=png32&transparent=false&f=image';
+  }
+
+  function loadImageAsync(src){
+    return new Promise((resolve, reject)=>{
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = ()=>resolve(img);
+      img.onerror = reject;
+      img.src = src;
+    });
+  }
+
+  document.getElementById('btnGeocode').addEventListener('click', async ()=>{
+    const statusEl = document.getElementById('geocodeStatus');
+    const address = document.getElementById('addressInput').value.trim();
+    const widthM = parseFloat(document.getElementById('viewWidthInput').value) || 40;
+    if(!address){ return; }
+    statusEl.textContent = t('status_geocoding');
+    try{
+      const loc = await geocodeAddress(address);
+      if(!loc){ statusEl.textContent = t('status_geocode_notfound'); return; }
+      statusEl.textContent = t('status_geocode_loading_img');
+      const pxSize = 900; // square crop, matches on-canvas display cap
+      const imgUrl = satelliteImageUrl(loc.lat, loc.lon, widthM, widthM, pxSize);
+      let img;
+      try{
+        img = await loadImageAsync(imgUrl);
+      }catch(e){
+        statusEl.textContent = t('status_geocode_img_error');
+        return;
+      }
+      // Auto-calibrate: the image spans exactly widthM meters, so derive pxPerMeter
+      // directly instead of requiring the manual "Calibrer l'échelle" tool.
+      const displayPx = Math.min(900, 650/1); // keep within usual canvas display bounds
+      const scale = displayPx / pxSize;
+      const dispSize = pxSize * scale;
+      pxPerMeter = dispSize / widthM;
+      bgImage = {img, x:0, y:0, w:dispSize, h:dispSize};
+      document.getElementById('opacityRow').style.display='flex';
+      scheduleSave();
+      draw();
+      statusEl.textContent = t('status_geocode_done') + ' (' + loc.label.split(',').slice(0,2).join(',') + ')';
+    }catch(e){
+      statusEl.textContent = t('status_geocode_error');
+    }
+  });
+
   document.getElementById('opacitySlider').addEventListener('input',(e)=>{
     bgOpacity = e.target.value/100;
     document.getElementById('opacityVal').textContent = e.target.value+'%';
@@ -2296,7 +2447,7 @@
     document.getElementById('pvWidth').value='1.134';
     document.getElementById('pvHeight').value='1.722';
     document.getElementById('pvPower').value='400';
-    document.getElementById('locSelect').value='36.75';
+    document.getElementById('locSelect').value='-4.32';
     document.getElementById('daySlider').value=80;
     document.getElementById('hourSlider').value=12;
     document.getElementById('heatToggle').checked=false;
